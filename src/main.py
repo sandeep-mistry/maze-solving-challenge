@@ -1,18 +1,35 @@
-import numpy as np
-import random
 
-# Set matrix dimensions
-n = 6
-m = 5
+maze = [[1, 2, 1, 1, 1, 1],
+        [1, 0, 1, 0, 0, 1],
+        [1, 0, 1, 0, 1, 1],
+        [1, 0, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1]]
 
-# Initialise matrix
-matrix = np.ones((n, m), dtype=int)
 
-# Initialise start point away from edge
-start_x_position = random.randrange(1, n-1)
-start_y_position = random.randrange(1, m-1)
-start_position = (start_x_position, start_y_position)
-matrix[start_position] = 2
+def simple_search(x, y, matrix):
+    if matrix[x][y] == 2:
+        print('Exit found at %d,%d' % (x, y))
+        return True
+    elif matrix[x][y] == 1:
+        print('Wall at %d,%d' % (x, y))
+        return False
+    elif matrix[x][y] == 3:
+        print('Visited %d,%d' % (x, y))
+        return False
 
-def create_escape_path(x_position, y_position):
-    
+    print('Visiting %d,%d' % (x, y))
+
+    # Mark visited cell
+    matrix[x][y] = 3
+
+    # Search in a clockwise fashion starting with position immediately right of starting point
+    if ((x < len(matrix) - 1 and simple_search(x + 1, y, matrix))
+        or (y > 0 and simple_search(x, y - 1, matrix))
+        or (x > 0 and simple_search(x - 1, y, matrix))
+        or (y < len(matrix) - 1 and simple_search(x, y + 1, matrix))):
+        return True
+
+    return False
+
+
+simple_search(1, 4, maze)
