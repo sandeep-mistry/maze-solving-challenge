@@ -50,5 +50,8 @@ while True:
         print('Complete!')
         break
     except ValueError:
-        print("Coordinates must be integers!")
+        print('Coordinates must be integers!')
+    except IndexError:
+        print('Coordinates of start position must exist in the maze.')
+
 
