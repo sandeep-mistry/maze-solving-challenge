@@ -1,10 +1,3 @@
-maze = [[1, 2, 1, 1, 1, 1],
-        [1, 0, 1, 0, 0, 1],
-        [1, 0, 1, 0, 1, 1],
-        [1, 0, 0, 0, 0, 1],
-        [1, 1, 1, 1, 1, 1]]
-
-
 def simple_search(x, y, matrix):
     if matrix[y][x] == 2:
         print('Exit found at %d,%d' % (x, y))
@@ -31,27 +24,34 @@ def simple_search(x, y, matrix):
     return False
 
 
-print("\n")
-print('A maze is shown below.', \
-      'Open cells are denoted by 0, walls by 1 and exits by 2.')
-print("\n")
+def solve_maze(maze):
+    print("\n")
+    print('A maze is shown below.',
+          'Open cells are denoted by 0, walls by 1 and exits by 2.')
+    print("\n")
+    # Ensure maze appears in matrix format in terminal
+    for row in maze:
+        print(*row)
+    print("\n")
+    # Ensure starting coordinates are reachable
+    while True:
+        try:
+            start_x_position = int(input("Enter starting x-coordinate: "))
+            start_y_position = int(input("Enter starting y-coordinate: "))
+            print("\n")
+            simple_search(start_x_position, start_y_position, maze)
+            print('Complete!')
+            break
+        except ValueError:
+            print('Coordinates must be integers!')
+        except IndexError:
+            print('Coordinates of start position must exist in the maze.')
 
-for row in maze:
-    print(*row)
 
-print("\n")
+example_maze = [[1, 2, 1, 1, 1, 1],
+                [1, 0, 1, 0, 0, 1],
+                [1, 0, 1, 0, 1, 1],
+                [1, 0, 0, 0, 0, 1],
+                [1, 1, 1, 1, 1, 1]]
 
-while True:
-    try:
-        start_x_position = int(input("Enter starting x-coordinate: "))
-        start_y_position = int(input("Enter starting y-coordinate: "))
-        print("\n")
-        simple_search(start_x_position, start_y_position, maze)
-        print('Complete!')
-        break
-    except ValueError:
-        print('Coordinates must be integers!')
-    except IndexError:
-        print('Coordinates of start position must exist in the maze.')
-
-
+solve_maze(example_maze)
