@@ -1,4 +1,3 @@
-
 maze = [[1, 2, 1, 1, 1, 1],
         [1, 0, 1, 0, 0, 1],
         [1, 0, 1, 0, 1, 1],
@@ -24,12 +23,13 @@ def simple_search(x, y, matrix):
 
     # Search in a clockwise fashion starting with position immediately right of starting point
     if ((x < len(matrix) - 1 and simple_search(x + 1, y, matrix))
-        or (y > 0 and simple_search(x, y - 1, matrix))
-        or (x > 0 and simple_search(x - 1, y, matrix))
-        or (y < len(matrix) - 1 and simple_search(x, y + 1, matrix))):
+            or (y > 0 and simple_search(x, y - 1, matrix))
+            or (x > 0 and simple_search(x - 1, y, matrix))
+            or (y < len(matrix) - 1 and simple_search(x, y + 1, matrix))):
         return True
 
     return False
+
 
 print("\n")
 print('A maze is shown below.', \
@@ -40,9 +40,15 @@ for row in maze:
     print(*row)
 
 print("\n")
-start_x_position = int(input ("Enter starting x-coordinate: "))
-start_y_position = int(input ("Enter starting y-coordinate: "))
-print("\n")
 
-simple_search(start_x_position, start_y_position, maze)
-print('Complete!')
+while True:
+    try:
+        start_x_position = int(input("Enter starting x-coordinate: "))
+        start_y_position = int(input("Enter starting y-coordinate: "))
+        print("\n")
+        simple_search(start_x_position, start_y_position, maze)
+        print('Complete!')
+        break
+    except ValueError:
+        print("Coordinates must be integers!")
+
