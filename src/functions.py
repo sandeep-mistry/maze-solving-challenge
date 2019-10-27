@@ -24,7 +24,7 @@ def simple_search(x, y, matrix):
     return False
 
 
-def solve_maze(maze):
+def solve_maze(maze, strategy):
     print("\n")
     print('A maze is shown below.',
           'Open cells are denoted by 0, walls by 1 and exits by 2.')
@@ -39,7 +39,7 @@ def solve_maze(maze):
             start_x_position = int(input("Enter starting x-coordinate: "))
             start_y_position = int(input("Enter starting y-coordinate: "))
             print("\n")
-            simple_search(start_x_position, start_y_position, maze)
+            strategy(start_x_position, start_y_position, maze)
             print('Complete!')
             break
         except ValueError:
