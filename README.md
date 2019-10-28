@@ -16,3 +16,10 @@ git clone https://github.com/sandeep-mistry/maze-solving-challenge.git
 cd maze-solving-challenge/src
 python3 main.py
 ```
+# Notes
+
+When entering starting point coordinates please bear in mind that Python begins counting from zero. Hence the coordinates of the value '1' in the matrix below are (0,0), '5' is (1,1), etc. 
+
+1 2 3 \
+4 5 6 \
+7 8 9
