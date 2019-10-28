@@ -1,6 +1,6 @@
 # Maze solving challenge
 
-A simple numerical maze solving program. 
+A simple numerical maze solving program. We explore the maze recursively by visiting each cell and avoiding walls and previously visited cells.
 
 # Requirements
 
