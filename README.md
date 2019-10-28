@@ -1,7 +1,5 @@
 # Maze solving challenge
 
-# Introduction
-
 A simple numerical maze solving program. 
 
 # Requirements
