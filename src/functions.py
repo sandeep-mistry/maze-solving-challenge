@@ -13,7 +13,6 @@ def simple_search(x, y, matrix):
         return False
 
     print('Visiting %d,%d' % (x, y))
-
     # Mark visited cell
     matrix[y][x] = 3
 
@@ -24,6 +23,7 @@ def simple_search(x, y, matrix):
             or (y < len(matrix) - 1 and simple_search(x, y + 1, matrix))):
         return True
 
+    # Backtrack and look for new path if exit is not found
     return False
 
 
@@ -36,6 +36,7 @@ def solve_maze(maze, strategy):
     for row in maze:
         print(*row)
     print("\n")
+
     # Ensure starting coordinates are reachable
     while True:
         try:
