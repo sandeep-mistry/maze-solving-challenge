@@ -1,6 +1,9 @@
 def simple_search(x, y, matrix):
     if matrix[y][x] == 2:
         print('Exit found at %d,%d' % (x, y))
+        print("\n")
+        for row in matrix:
+            print(*row)
         return True
     elif matrix[y][x] == 1:
         print('Wall at %d,%d' % (x, y))
@@ -27,7 +30,7 @@ def simple_search(x, y, matrix):
 def solve_maze(maze, strategy):
     print("\n")
     print('A maze is shown below.',
-          'Open cells are denoted by 0, walls by 1 and exits by 2.')
+          'Open cells are shown as 0, walls as 1, exits as 2 and visited cells as 3.')
     print("\n")
     # Ensure maze appears in matrix format in terminal
     for row in maze:
@@ -40,7 +43,7 @@ def solve_maze(maze, strategy):
             start_y_position = int(input("Enter starting y-coordinate: "))
             print("\n")
             strategy(start_x_position, start_y_position, maze)
-            print('Complete!')
+            print("\n")
             break
         except ValueError:
             print('Coordinates must be integers!')
