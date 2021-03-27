@@ -10,8 +10,6 @@ A simple numerical maze solving program. We explore the maze recursively by visi
 # Usage
 
 ```
-Open terminal
-cd desired directory
 git clone https://github.com/sandeep-mistry/maze-solving-challenge.git
 cd maze-solving-challenge/src
 python3 main.py
